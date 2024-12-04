@@ -1,4 +1,5 @@
 from numbers import Number
+import numpy as np
 
 
 class Polynomial:
@@ -72,4 +73,26 @@ class Polynomial:
             return NotImplemented
 
     def __rsub__(self, other):
-        return Polynomial(tuple(-i for i in self.coefficients)) + other   
+        return Polynomial(tuple(-i for i in self.coefficients)) + other
+
+    def __mul__(self, other):
+
+        if isinstance(other, Polynomial):
+            result_poly=Polynomial((0,))
+            for count, value in enumerate(self.coefficients):
+                # build tuple
+                temp_tup = tuple(i for i in np.zeros(count, dtype=int))
+                result_tup = temp_tup + \
+                             tuple(value * j for j in other.coefficients)
+                result_poly += Polynomial(result_tup)
+            
+            return result_poly
+
+        elif isinstance(other, Number):
+            return Polynomial(tuple(a * other for a in self.coefficients))
+
+        else:
+            return NotImplemented
+
+    def __rmul__(self, other):
+        return self * other    
