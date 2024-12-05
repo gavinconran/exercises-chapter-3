@@ -85,7 +85,7 @@ class Polynomial:
                 result_tup = temp_tup + \
                              tuple(value * j for j in other.coefficients)
                 result_poly += Polynomial(result_tup)
-            
+
             return result_poly
 
         elif isinstance(other, Number):
@@ -95,4 +95,12 @@ class Polynomial:
             return NotImplemented
 
     def __rmul__(self, other):
-        return self * other    
+        return self * other
+
+    def __pow__(self, other):
+        result = self
+        for i in np.arange(other - 1):
+            result *= self
+        return result
+
+
