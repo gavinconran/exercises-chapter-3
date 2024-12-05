@@ -1,3 +1,3 @@
 ## relative imports
-from .polynomials import Polynomial
-from .polynomials import derivative 
+from .polynomials import Polynomial    # noqa F401
+from .polynomials import derivative    # noqa F401
