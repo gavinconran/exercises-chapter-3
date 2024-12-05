@@ -1,3 +1,3 @@
-## absolute imports
-from polynomials.polynomials import Polynomial
-from polynomials.polynomials import derivative 
+## relative imports
+from .polynomials import Polynomial
+from .polynomials import derivative 
