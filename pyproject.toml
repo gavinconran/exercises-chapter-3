@@ -5,3 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "polynomials"
 version = "0.1"
+
+[project]
+name = "shape"
+version = "0.1"
