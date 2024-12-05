@@ -1,5 +1,5 @@
 ## absolute imports
-from shape.circle import Circle
+#from shape.shape import Circle
 
 ## relative import
-#from .circle import Circle 
+from .shape import Circle 
