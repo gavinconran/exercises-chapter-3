@@ -1,1 +1,1 @@
-from .shape import circle
+from .circle import Circle
