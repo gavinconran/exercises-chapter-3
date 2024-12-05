@@ -103,4 +103,13 @@ class Polynomial:
             result *= self
         return result
 
+    def __call__(self, other):
+        x = other
+        result_final = 0
+        for power, value in enumerate(self.coefficients):
+            result_final += value * x ** power
+        return result_final
+
+
+
 
