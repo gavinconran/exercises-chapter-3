@@ -110,6 +110,20 @@ class Polynomial:
             result_final += value * x ** power
         return result_final
 
+    def dx(self):
+        # check for a single integer
+        if self.degree() == 0:
+            return Polynomial((0,))
+        # differentiate polynomial
+        result_list = []
+        for power, value in enumerate(self.coefficients):
+            if power != 0:  
+                result_list.append(power * value)
+        return Polynomial(tuple(result_list)) 
+        
+def derivative(f):
+    return f.dx()
+
 
 
 
