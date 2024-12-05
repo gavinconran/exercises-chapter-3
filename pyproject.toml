@@ -2,8 +2,9 @@
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[project]
+[project 1]
 name = "polynomials"
 version = "0.1"
+[project 2]
 name = "shape"
 version = "0.1"
