@@ -5,7 +5,7 @@ import numpy as np
 
 class Polynomial:
     """
-    The Polynomial class reprents a polynomial function.
+    The Polynomial class represents a polynomial function.
 
     :param coefs: tuple containing the polynomial coefficients
                   i-th coefficient represents the coefficient x^i  
@@ -145,7 +145,4 @@ class Polynomial:
 def derivative(f):
     """Function returns the derivative of a Polynomial f as a polynomial."""
     return f.dx()
-
-
-
 
