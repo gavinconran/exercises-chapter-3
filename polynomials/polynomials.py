@@ -1,4 +1,5 @@
 """This file contains the class Polynomial for Ex 3.3-5 of OOP4Maths."""
+
 from numbers import Number
 import numpy as np
 
