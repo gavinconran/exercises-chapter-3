@@ -21,7 +21,7 @@ class Polynomial:
         return len(self.coefficients) - 1
 
     def __str__(self):
-        """Called by print() and returns a string representation of Polynomial."""
+        """Called by print(); returns string representation of Polynomial."""
         coefs = self.coefficients
         terms = []
 
@@ -36,13 +36,13 @@ class Polynomial:
         return " + ".join(reversed(terms)) or "0"
 
     def __repr__(self):
-        """Called by repr() and returns a string representation of Polynomial."""
+        """Called by repr(); returns string representation of Polynomial."""
         return self.__class__.__name__ + "(" + repr(self.coefficients) + ")"
 
     def __eq__(self, other):
         """Vecks if Polynomials self and other are equal."""
-        return isinstance(other, Polynomial) and\
-             self.coefficients == other.coefficients
+        return isinstance(other, Polynomial) and \
+                 self.coefficients == other.coefficients
 
     def __add__(self, other):
         """Adds Polynomial self to Polynomial or Number other."""
@@ -72,14 +72,19 @@ class Polynomial:
     def __sub__(self, other):
         """Subtracts Polynomial or Number other from Polynomial self."""
         if isinstance(other, Polynomial):
+            # Work out how many coefficient places
+            # the two polynomials have in common.
             common = min(self.degree(), other.degree()) + 1
-
             coefs = tuple(a - b for a, b in zip(self.coefficients,
                                                 other.coefficients))
-            res = tuple(map(lambda i, j: i - j, self.coefficients[common:], other.coefficients[common:]))
+            # Append the high degree coefficients
+            # from the higher degree self Polynomial.
             coefs += self.coefficients[common:]
+            # Append the high degree coefficients
+            # from the higher degree other Polynomial.
             other_coefs = tuple(-i for i in other.coefficients[common:])
             coefs += other_coefs
+
             return Polynomial(coefs)
 
         elif isinstance(other, Number):
@@ -96,7 +101,7 @@ class Polynomial:
     def __mul__(self, other):
         """Multipliess Polynomial self with Polynomial or Number other."""
         if isinstance(other, Polynomial):
-            result_poly=Polynomial((0,))
+            result_poly = Polynomial((0,))
             for count, value in enumerate(self.coefficients):
                 # build tuple
                 temp_tup = tuple(i for i in np.zeros(count, dtype=int))
